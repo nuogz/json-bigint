@@ -1,0 +1,50 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Current File",
+			"console": "integratedTerminal",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"runtimeExecutable": "node.exe",
+			"cwd": "${fileDirname}",
+			"program": "${fileBasename}",
+			"args": [
+				"${workspaceRoot}"
+			],
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mocha Current Test",
+			"console": "integratedTerminal",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${fileDirname}",
+			"runtimeExecutable": "npx",
+			"args": [
+				"mocha",
+				"${file}",
+			],
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mocha All Tests",
+			"console": "integratedTerminal",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}/test",
+			"runtimeExecutable": "npx",
+			"args": [
+				"mocha",
+				"*.test.js",
+			],
+		},
+	]
+}
