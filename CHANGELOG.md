@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.0.3 - 2023.01.05 15
+* try to fix fucking types definition in `package.json`
+
+
 ## v1.0.2 - 2023.01.05 15
 * fix types definition in `package.json`
 
