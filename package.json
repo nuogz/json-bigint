@@ -9,9 +9,7 @@
 		"url": "github:nuogz/json-bigint"
 	},
 	"type": "module",
-	"typesSource": [
-		"browser"
-	],
+	"typesSource": [],
 	"engines": {
 		"node": ">=14.18.1"
 	},
