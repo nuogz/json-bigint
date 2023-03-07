@@ -1,0 +1,28 @@
+{
+	"invalidReplacer_proto": "replacer必须是函数，值：{{value}}",
+	"invalidReplacer_hades": "~[replacer]必须是函数，值{{value,hadesValue}}",
+	"invalidProtoAction_proto": "protoAction选项必须是“error”、“ignore”、“preserve”或undefined，值：{{value}}",
+	"invalidProtoAction_hades": "~[protoAction]选项必须是“error”、“ignore”、“preserve”或undefined，值{{value,hadesValue}}",
+	"invalidConstructorAction_proto": "constructorAction选项必须是“error”、“ignore”、“preserve”或undefined，值：{{value}}",
+	"invalidConstructorAction_hades": "~[constructorAction]选项必须是“error”、“ignore”、“preserve”或undefined，值{{value,hadesValue}}",
+	"errorSyntax": {
+		"unexpectedChar_proto": "预期字符“{{charExpected}}”而不是“{{char}}”'，位置：{{index}}",
+		"unexpectedChar_hades": "预期~[字符]“{{charExpected,hadesValue}}”而不是“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"unexpectedWord_proto": "预期外的词语“{{char}}”'，位置：{{index}}",
+		"unexpectedWord_hades": "预期外的~[词语]“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"badNumber_proto": "非法的数字“{{char}}”'，位置：{{index}}",
+		"badNumber_hades": "非法的~[数字]“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"badString_proto": "非法的字符串“{{char}}”'，位置：{{index}}",
+		"badString_hades": "非法的~[字符串]“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"badArray_proto": "非法的数字“{{char}}”'，位置：{{index}}",
+		"badArray_hades": "非法的~[数字]“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"badObject_proto": "非法的对象“{{char}}”'，位置：{{index}}",
+		"badObject_hades": "非法的~[对象]“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"errorSyntax_proto": "语法错误“{{char}}”'，位置：{{index}}",
+		"errorSyntax_hades": "~[语法]错误“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"containForbiddenPrototype_proto": "对象包含禁止的原型属性“{{char}}”'，位置：{{index}}",
+		"containForbiddenPrototype_hades": "对象包含禁止的~[原型属性]“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}",
+		"containForbiddenConstructor_proto": "对象包含禁止的构造属性“{{char}}”'，位置：{{index}}",
+		"containForbiddenConstructor_hades": "对象包含禁止的~[构造属性]“{{char,hadesValue}}”, ~[位置]{{index,hadesValue}}"
+	}
+}

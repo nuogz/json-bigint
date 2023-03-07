@@ -1,0 +1,28 @@
+{
+	"invalidReplacer_proto": "replacer must be a function, value {{value}}",
+	"invalidReplacer_hades": "~[replacer] must be a function, ~[value] {{value,hadesValue}}",
+	"invalidProtoAction_proto": "protoAction option must be 'error', 'ignore' or undefined, value {{value}}",
+	"invalidProtoAction_hades": "~[protoAction] option must be 'error', 'ignore' or undefined, ~[value] {{value,hadesValue}}",
+	"invalidConstructorAction_proto": "constructorAction option must be 'error', 'ignore' or undefined, value {{value}}",
+	"invalidConstructorAction_hades": "~[constructorAction] option must be 'error', 'ignore' or undefined, ~[value] {{value,hadesValue}}",
+	"errorSyntax": {
+		"unexpectedChar_proto": "Expected char '{{charExpected}}' instead of '{{char}}', index: {{index}}",
+		"unexpectedChar_hades": "Expected ~[char] '{{charExpected,hadesValue}'} instead of '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"unexpectedWord_proto": "Unexpected word '{{char}}', index: {{index}}",
+		"unexpectedWord_hades": "Unexpected ~[word] '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"badNumber_proto": "Bad number '{{char}}', index: {{index}}",
+		"badNumber_hades": "Bad ~[number] '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"badString_proto": "Bad string '{{char}}', index: {{index}}",
+		"badString_hades": "Bad ~[string] '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"badArray_proto": "Bad array '{{char}}', index: {{index}}",
+		"badArray_hades": "Bad ~[array] '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"badObject_proto": "Bad object '{{char}}', index: {{index}}",
+		"badObject_hades": "Bad ~[object] '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"errorSyntax_proto": "Syntax error '{{char}}', index: {{index}}",
+		"errorSyntax_hades": "~[Syntax] error '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"containForbiddenPrototype_proto": "Object contains forbidden prototype property '{{char}}', index: {{index}}",
+		"containForbiddenPrototype_hades": "Object contains forbidden ~[prototype property] '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}",
+		"containForbiddenConstructor_proto": "Object contains forbidden constructor property '{{char}}', index: {{index}}",
+		"containForbiddenConstructor_hades": "Object contains forbidden ~[constructor property] '{{char,hadesValue}}', ~[index]: {{index,hadesValue}}"
+	}
+}

@@ -1,3 +1,11 @@
+import { TT } from '@nuogz/i18n';
+
+
+
+const T = TT('@nuogz/json-bigint');
+
+
+
 const charsEscape = {
 	'"': '"',
 	'\\': '\\',
@@ -11,16 +19,6 @@ const charsEscape = {
 
 const suspectProtoRx = /(?:_|\\u005[Ff])(?:_|\\u005[Ff])(?:p|\\u0070)(?:r|\\u0072)(?:o|\\u006[Ff])(?:t|\\u0074)(?:o|\\u006[Ff])(?:_|\\u005[Ff])(?:_|\\u005[Ff])/;
 const suspectConstructorRx = /(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)/;
-
-
-const caseError = (message, indexChar, text) => {
-	throw {
-		name: 'SyntaxError',
-		message: message,
-		at: indexChar,
-		text,
-	};
-};
 
 
 /**
@@ -54,9 +52,7 @@ export default function parse(text, reviver, option) {
 		optionFinal.protoAction != 'ignore' &&
 		optionFinal.protoAction != 'preserve'
 	) {
-		throw new Error(
-			`Incorrect value for protoAction option, must be "error", "ignore" or undefined but passed ${optionFinal.protoAction}`
-		);
+		throw Error(T('invalidProtoAction', { value: optionFinal.protoAction }));
 	}
 
 	if(
@@ -64,9 +60,7 @@ export default function parse(text, reviver, option) {
 		optionFinal.constructorAction != 'ignore' &&
 		optionFinal.constructorAction != 'preserve'
 	) {
-		throw new Error(
-			`Incorrect value for constructorAction option, must be "error", "ignore" or undefined but passed ${optionFinal.constructorAction}`
-		);
+		throw Error(T('invalidConstructorAction', { value: optionFinal.constructorAction }));
 	}
 
 
@@ -88,7 +82,7 @@ export default function parse(text, reviver, option) {
 	const next = c => {
 		// If a c parameter is provided, verify that it matches the current character.
 		if(c && c !== charNow) {
-			caseError(`Expected "${c}" instead of "${charNow}"`, charNow, stringText);
+			throw Error(T('errorSyntax.unexpectedChar', { charExpected: c, char: charNow, index: indexChar }));
 		}
 
 		// Get the next character. When there are no more characters,
@@ -140,7 +134,7 @@ export default function parse(text, reviver, option) {
 
 
 		if(!isFinite(number)) {
-			caseError('Bad number', charNow, stringText);
+			throw Error(T('errorSyntax.badNumber', { char: charNow, index: indexChar }));
 		}
 
 		if(Number.isSafeInteger(number)) {
@@ -201,7 +195,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		caseError('Bad string', charNow, stringText);
+		throw Error(T('errorSyntax.badString', { char: charNow, index: indexChar }));
 	};
 
 
@@ -226,7 +220,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		caseError(`Unexpected word '${charNow}'`, charNow, stringText);
+		throw Error(T('errorSyntax.unexpectedWord', { char: charNow, index: indexChar }));
 	};
 
 
@@ -258,7 +252,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		caseError('Bad array', charNow, stringText);
+		throw Error(T('errorSyntax.badArray', { char: charNow, index: indexChar }));
 	};
 
 	const parseObject = () => {
@@ -282,7 +276,7 @@ export default function parse(text, reviver, option) {
 
 				if(suspectProtoRx.test(key)) {
 					if(optionFinal.protoAction == 'error') {
-						caseError('Object contains forbidden prototype property', charNow, stringText);
+						throw Error(T('errorSyntax.containForbiddenPrototype', { char: charNow, index: indexChar }));
 					}
 					else if(optionFinal.protoAction == 'ignore') {
 						parseValue();
@@ -293,7 +287,7 @@ export default function parse(text, reviver, option) {
 				}
 				else if(suspectConstructorRx.test(key)) {
 					if(optionFinal.constructorAction == 'error') {
-						caseError('Object contains forbidden constructor property', charNow, stringText);
+						throw Error(T('errorSyntax.containForbiddenConstructor', { char: charNow, index: indexChar }));
 					}
 					else if(optionFinal.constructorAction == 'ignore') {
 						parseValue();
@@ -319,7 +313,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		caseError('Bad object', charNow, stringText);
+		throw Error(T('errorSyntax.badObject', { char: charNow, index: indexChar }));
 	};
 
 	/** Place holder for the value function */
@@ -349,7 +343,7 @@ export default function parse(text, reviver, option) {
 	const result = parseValue();
 
 	skipWhite();
-	if(charNow) { caseError('Syntax error', charNow, stringText); }
+	if(charNow) { throw Error(T('errorSyntax.errorSyntax', { char: charNow, index: indexChar })); }
 
 
 	if(typeof reviver == 'function') {

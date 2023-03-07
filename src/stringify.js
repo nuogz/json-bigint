@@ -1,3 +1,11 @@
+import { TT } from '@nuogz/i18n';
+
+
+
+const T = TT('@nuogz/json-bigint');
+
+
+
 // eslint-disable-next-line no-control-regex, no-misleading-character-class
 const escapable = /[\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
 
@@ -27,6 +35,18 @@ const quote = string => {
 };
 
 
+/**
+ * @callback Replacer
+ * @param {any} this
+ * @param {string} key
+ * @param {any} value
+ */
+
+/**
+ * @param {any} value
+ * @param {Replacer} [replacer]
+ * @param {string|number} [space]
+ */
 export default function stringify(value, replacer, space) {
 	let gap = '';
 
@@ -45,7 +65,7 @@ export default function stringify(value, replacer, space) {
 		replacer && typeof replacer != 'function' &&
 		!(replacer instanceof Array)
 	) {
-		throw new Error('JSON.stringify');
+		throw Error(T('invalidReplacer', {value}));
 	}
 
 

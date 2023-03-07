@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.1.0 - 2023.03.07 16
+* use library `@nuogz/i18n` for i18n error
+* improve jsdoc
+
+
 ## v1.0.7 - 2023.01.05 16
 * improve `package.json`
 
