@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.1.1 - 2023.03.24 15
+* bump up dependencies
+
+
 ## v1.1.0 - 2023.03.07 16
 * use library `@nuogz/i18n` for i18n error
 * improve jsdoc
