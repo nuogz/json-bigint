@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.1.2 - 2023.03.24 16
+* update description
+* bump up dependencies
+
+
 ## v1.1.1 - 2023.03.24 15
 * bump up dependencies
 

@@ -1,14 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@nuogz/i18n': ^2.0.1
+  '@nuogz/i18n': ^2.0.2
   chai: ^4.3.7
   eslint: ^8.36.0
   mocha: ^10.2.0
   typescript: ^4.9.5
 
 dependencies:
-  '@nuogz/i18n': 2.0.1
+  '@nuogz/i18n': 2.0.2
 
 devDependencies:
   chai: 4.3.7
@@ -103,8 +103,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@nuogz/i18n/2.0.1:
-    resolution: {integrity: sha512-TtMh3Ki+rbZAPvZHIR9YIYXxdd53O5nv8xr3qqF/JW1+jrJEwIqxa+GnqAiWd6qnsUVVLTwj1To105XaGmEWzg==}
+  /@nuogz/i18n/2.0.2:
+    resolution: {integrity: sha512-uvjqcJ/NbmIyvpMW2C6DLYKe+vcJ2d2efJ1GDMf8Pt0/1RK31h1MKntEhBBfFLBPtZyuGG4C6q5pG8r/JC+3Nw==}
     engines: {node: '>=14.18.1'}
     dependencies:
       i18next: 22.4.13
