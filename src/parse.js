@@ -17,8 +17,8 @@ const charsEscape = {
 	t: '\t',
 };
 
-const suspectProtoRx = /(?:_|\\u005[Ff])(?:_|\\u005[Ff])(?:p|\\u0070)(?:r|\\u0072)(?:o|\\u006[Ff])(?:t|\\u0074)(?:o|\\u006[Ff])(?:_|\\u005[Ff])(?:_|\\u005[Ff])/;
-const suspectConstructorRx = /(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)/;
+const regexpProtoKey = /^(?:_|\\u005[Ff])(?:_|\\u005[Ff])(?:p|\\u0070)(?:r|\\u0072)(?:o|\\u006[Ff])(?:t|\\u0074)(?:o|\\u006[Ff])(?:_|\\u005[Ff])(?:_|\\u005[Ff])$/;
+const regexpConstructorKey = /^(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)$/;
 
 
 /**
@@ -134,7 +134,7 @@ export default function parse(text, reviver, option) {
 
 
 		if(!isFinite(number)) {
-			throw Error(T('errorSyntax.badNumber', { char: charNow, index: indexChar }));
+			throw Error(T('errorSyntax.badNumber', { string: stringNumber, index: indexChar }));
 		}
 
 		if(Number.isSafeInteger(number)) {
@@ -151,14 +151,17 @@ export default function parse(text, reviver, option) {
 
 	// When parsing for string values, we must look for " and \ characters.
 	const parseString = () => {
+		const indexStart = indexChar;
+
+
 		let string = '';
 
 		if(charNow == '"') {
-			let indexStart = indexChar;
+			let indexNow = indexChar;
 
 			while(next()) {
 				if(charNow == '"') {
-					if(indexChar - 1 > indexStart) { string += stringText.substring(indexStart, indexChar - 1); }
+					if(indexChar - 1 > indexNow) { string += stringText.substring(indexNow, indexChar - 1); }
 
 					next();
 
@@ -166,7 +169,7 @@ export default function parse(text, reviver, option) {
 				}
 
 				if(charNow == '\\') {
-					if(indexChar - 1 > indexStart) { string += stringText.substring(indexStart, indexChar - 1); }
+					if(indexChar - 1 > indexNow) { string += stringText.substring(indexNow, indexChar - 1); }
 
 					next();
 
@@ -190,12 +193,12 @@ export default function parse(text, reviver, option) {
 						break;
 					}
 
-					indexStart = indexChar;
+					indexNow = indexChar;
 				}
 			}
 		}
 
-		throw Error(T('errorSyntax.badString', { char: charNow, index: indexChar }));
+		throw Error(T('errorSyntax.badString', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }));
 	};
 
 
@@ -225,6 +228,9 @@ export default function parse(text, reviver, option) {
 
 
 	const parseArray = () => {
+		const indexStart = indexChar;
+
+
 		const array = [];
 
 		if(charNow == '[') {
@@ -252,10 +258,13 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		throw Error(T('errorSyntax.badArray', { char: charNow, index: indexChar }));
+		throw Error(T('errorSyntax.badArray', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }));
 	};
 
 	const parseObject = () => {
+		const indexStart = indexChar;
+
+
 		const object = {};
 
 		if(charNow == '{') {
@@ -274,9 +283,9 @@ export default function parse(text, reviver, option) {
 				skipWhite();
 				next(':');
 
-				if(suspectProtoRx.test(key)) {
+				if(regexpProtoKey.test(key)) {
 					if(optionFinal.protoAction == 'error') {
-						throw Error(T('errorSyntax.containForbiddenPrototype', { char: charNow, index: indexChar }));
+						throw Error(T('errorSyntax.containForbiddenPrototype', { key, index: indexChar }));
 					}
 					else if(optionFinal.protoAction == 'ignore') {
 						parseValue();
@@ -285,9 +294,9 @@ export default function parse(text, reviver, option) {
 						object[key] = parseValue();
 					}
 				}
-				else if(suspectConstructorRx.test(key)) {
+				else if(regexpConstructorKey.test(key)) {
 					if(optionFinal.constructorAction == 'error') {
-						throw Error(T('errorSyntax.containForbiddenConstructor', { char: charNow, index: indexChar }));
+						throw Error(T('errorSyntax.containForbiddenConstructor', { key, index: indexChar }));
 					}
 					else if(optionFinal.constructorAction == 'ignore') {
 						parseValue();
@@ -313,7 +322,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		throw Error(T('errorSyntax.badObject', { char: charNow, index: indexChar }));
+		throw Error(T('errorSyntax.badObject', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }));
 	};
 
 	/** Place holder for the value function */

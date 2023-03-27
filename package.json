@@ -1,7 +1,7 @@
 {
 	"name": "@nuogz/json-bigint",
-	"version": "1.1.2",
-	"description": "JSON parse and stringify with native bigint and esm support in modern javascript",
+	"version": "1.2.0",
+	"description": "JSON parse and stringify with native BigInt and ESM support in modern JavaScript",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",
 	"repository": {
@@ -31,6 +31,6 @@
 		"typescript": "^4.9.5"
 	},
 	"dependencies": {
-		"@nuogz/i18n": "^2.0.2"
+		"@nuogz/i18n": "^3.0.0"
 	}
 }

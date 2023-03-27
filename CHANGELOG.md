@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v1.2.0 - 2023.03.27 16
+* renew locales for `@nuogz/i18n@3.x` 
+* improve error message
+* stricter regexps for test object prototype and constructor
+* improve description
+* bump up dependencies
+
+
 ## v1.1.2 - 2023.03.24 16
 * update description
 * bump up dependencies
