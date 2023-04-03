@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.2.1 - 2023.04.03 15
+* bump up `@nuogz/i18n` to `v3.1.0` and renew related code
+* renew locales
+
+
 ## v1.2.0 - 2023.03.27 16
 * renew locales for `@nuogz/i18n@3.x` 
 * improve error message

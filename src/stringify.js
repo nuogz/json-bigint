@@ -65,7 +65,7 @@ export default function stringify(value, replacer, space) {
 		replacer && typeof replacer != 'function' &&
 		!(replacer instanceof Array)
 	) {
-		throw Error(T('invalidReplacer', {value}));
+		throw Error(T('invalidReplacer', { value }, 'JSONBigint.stringify'));
 	}
 
 
