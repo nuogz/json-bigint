@@ -1,11 +1,13 @@
 {
-	"invalidReplacer@proto": "参数'replacer'必须是类型function，值：{{-value,valueType}}",
-	"invalidReplacer@hades": "参数~[replacer]必须是类型~{function}，值{{-value,valueType@hades}}",
-	"invalidProtoAction@proto": "参数'option.protoAction'必须是'error'、'ignore'、'preserve'或undefined的其中之一，值：{{-value,valueType}}",
-	"invalidProtoAction@hades": "参数~[option.protoAction]必须是~{'error'}、~{'ignore'}、~{'preserve'}或~{undefined}的其中之一，值{{-value,valueType@hades}}",
-	"invalidConstructorAction@proto": "参数'option.constructorAction'必须是'error'、'ignore'、'preserve'或undefined的其中之一，值：{{-value,valueType}}",
-	"invalidConstructorAction@hades": "参数~[option.constructorAction]必须是~{'error'}、~{'ignore'}、~{'preserve'}或~{undefined}的其中之一，值{{-value,valueType@hades}}",
-	"errorSyntax": {
+	"ArgumentError": {
+		"invalidStringifyReplacer@proto": "参数'replacer'必须是类型function，值：{{-value,valueType}}",
+		"invalidStringifyReplacer@hades": "参数~[replacer]必须是类型~{function}，值{{-value,valueType@hades}}",
+		"invalidParseProtoAction@proto": "参数'option.protoAction'必须是'error'、'ignore'、'preserve'或undefined的其中之一，值：{{-value,valueType}}",
+		"invalidParseProtoAction@hades": "参数~[option.protoAction]必须是~{'error'}、~{'ignore'}、~{'preserve'}或~{undefined}的其中之一，值{{-value,valueType@hades}}",
+		"invalidParseConstructorAction@proto": "参数'option.constructorAction'必须是'error'、'ignore'、'preserve'或undefined的其中之一，值：{{-value,valueType}}",
+		"invalidParseConstructorAction@hades": "参数~[option.constructorAction]必须是~{'error'}、~{'ignore'}、~{'preserve'}或~{undefined}的其中之一，值{{-value,valueType@hades}}"
+	},
+	"SyntaxError": {
 		"unexpectedChar@proto": "语法错误，预期字符是'{{charExpected}}'而非'{{char}}'，位置：{{index}}",
 		"unexpectedChar@hades": "语法错误，预期~[字符]是{{charExpected,value@hades}}而非{{char,value@hades}}，位置{{index,value@hades}}",
 		"unexpectedWord@proto": "语法错误，预期外的词语'{{char}}'，位置：{{index}}",

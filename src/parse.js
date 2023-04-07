@@ -52,7 +52,7 @@ export default function parse(text, reviver, option) {
 		optionFinal.protoAction != 'ignore' &&
 		optionFinal.protoAction != 'preserve'
 	) {
-		throw Error(T('invalidProtoAction', { value: optionFinal.protoAction }, 'JSONBigint.parse'));
+		throw Error(T('ArgumentError.invalidParseProtoAction', { value: optionFinal.protoAction }, 'JSONBigint.parse'));
 	}
 
 	if(
@@ -60,7 +60,7 @@ export default function parse(text, reviver, option) {
 		optionFinal.constructorAction != 'ignore' &&
 		optionFinal.constructorAction != 'preserve'
 	) {
-		throw Error(T('invalidConstructorAction', { value: optionFinal.constructorAction }, 'JSONBigint.parse'));
+		throw Error(T('ArgumentError.invalidParseConstructorAction', { value: optionFinal.constructorAction }, 'JSONBigint.parse'));
 	}
 
 
@@ -82,7 +82,7 @@ export default function parse(text, reviver, option) {
 	const next = c => {
 		// If a c parameter is provided, verify that it matches the current character.
 		if(c && c !== charNow) {
-			throw Error(T('errorSyntax.unexpectedChar', { charExpected: c, char: charNow, index: indexChar }, 'JSONBigint.parse'));
+			throw Error(T('SyntaxError.unexpectedChar', { charExpected: c, char: charNow, index: indexChar }, 'JSONBigint.parse'));
 		}
 
 		// Get the next character. When there are no more characters,
@@ -134,7 +134,7 @@ export default function parse(text, reviver, option) {
 
 
 		if(!isFinite(number)) {
-			throw Error(T('errorSyntax.badNumber', { string: stringNumber, index: indexChar }, 'JSONBigint.parse'));
+			throw Error(T('SyntaxError.badNumber', { string: stringNumber, index: indexChar }, 'JSONBigint.parse'));
 		}
 
 		if(Number.isSafeInteger(number)) {
@@ -198,7 +198,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		throw Error(T('errorSyntax.badString', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }, 'JSONBigint.parse'));
+		throw Error(T('SyntaxError.badString', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }, 'JSONBigint.parse'));
 	};
 
 
@@ -223,7 +223,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		throw Error(T('errorSyntax.unexpectedWord', { char: charNow, index: indexChar }, 'JSONBigint.parse'));
+		throw Error(T('SyntaxError.unexpectedWord', { char: charNow, index: indexChar }, 'JSONBigint.parse'));
 	};
 
 
@@ -258,7 +258,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		throw Error(T('errorSyntax.badArray', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }, 'JSONBigint.parse'));
+		throw Error(T('SyntaxError.badArray', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }, 'JSONBigint.parse'));
 	};
 
 	const parseObject = () => {
@@ -285,7 +285,7 @@ export default function parse(text, reviver, option) {
 
 				if(regexpProtoKey.test(key)) {
 					if(optionFinal.protoAction == 'error') {
-						throw Error(T('errorSyntax.containForbiddenPrototype', { key, index: indexChar }, 'JSONBigint.parse'));
+						throw Error(T('SyntaxError.containForbiddenPrototype', { key, index: indexChar }, 'JSONBigint.parse'));
 					}
 					else if(optionFinal.protoAction == 'ignore') {
 						parseValue();
@@ -296,7 +296,7 @@ export default function parse(text, reviver, option) {
 				}
 				else if(regexpConstructorKey.test(key)) {
 					if(optionFinal.constructorAction == 'error') {
-						throw Error(T('errorSyntax.containForbiddenConstructor', { key, index: indexChar }, 'JSONBigint.parse'));
+						throw Error(T('SyntaxError.containForbiddenConstructor', { key, index: indexChar }, 'JSONBigint.parse'));
 					}
 					else if(optionFinal.constructorAction == 'ignore') {
 						parseValue();
@@ -322,7 +322,7 @@ export default function parse(text, reviver, option) {
 			}
 		}
 
-		throw Error(T('errorSyntax.badObject', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }, 'JSONBigint.parse'));
+		throw Error(T('SyntaxError.badObject', { string: stringText.substring(indexStart - 1, indexChar - 1), index: indexChar }, 'JSONBigint.parse'));
 	};
 
 	/** Place holder for the value function */
@@ -352,7 +352,7 @@ export default function parse(text, reviver, option) {
 	const result = parseValue();
 
 	skipWhite();
-	if(charNow) { throw Error(T('errorSyntax.errorSyntax', { char: charNow, index: indexChar }, 'JSONBigint.parse')); }
+	if(charNow) { throw Error(T('SyntaxError.SyntaxError', { char: charNow, index: indexChar }, 'JSONBigint.parse')); }
 
 
 	if(typeof reviver == 'function') {

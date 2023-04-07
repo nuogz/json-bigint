@@ -1,11 +1,13 @@
 {
-	"invalidReplacer@proto": "'replacer' argument must be of type function, value: {{-value,valueType}}",
-	"invalidReplacer@hades": "~[replacer] argument must be of type ~{function}, ~[value] {{-value,valueType@hades}}",
-	"invalidProtoAction@proto": "'option.protoAction' argument must be one of 'error', 'ignore', 'preserve' or undefined, value: {{-value,valueType}}",
-	"invalidProtoAction@hades": "~[option.protoAction] argument must be one of ~{'error'}, ~{'ignore'}, ~{'preserve'} or ~{undefined}, ~[value] {{-value,valueType@hades}}",
-	"invalidConstructorAction@proto": "'option.constructorAction' argument must be one of 'error', 'ignore', 'preserve' or undefined, value: {{-value,valueType}}",
-	"invalidConstructorAction@hades": "~[option.constructorAction] argument must be one of ~{'error'}, ~{'ignore'}, ~{'preserve'} or ~{undefined}, ~[value] {{-value,valueType@hades}}",
-	"errorSyntax": {
+	"ArgumentError": {
+		"invalidStringifyReplacer@proto": "'replacer' argument must be of type function, value: {{-value,valueType}}",
+		"invalidStringifyReplacer@hades": "~[replacer] argument must be of type ~{function}, ~[value] {{-value,valueType@hades}}",
+		"invalidParseProtoAction@proto": "'option.protoAction' argument must be one of 'error', 'ignore', 'preserve' or undefined, value: {{-value,valueType}}",
+		"invalidParseProtoAction@hades": "~[option.protoAction] argument must be one of ~{'error'}, ~{'ignore'}, ~{'preserve'} or ~{undefined}, ~[value] {{-value,valueType@hades}}",
+		"invalidParseConstructorAction@proto": "'option.constructorAction' argument must be one of 'error', 'ignore', 'preserve' or undefined, value: {{-value,valueType}}",
+		"invalidParseConstructorAction@hades": "~[option.constructorAction] argument must be one of ~{'error'}, ~{'ignore'}, ~{'preserve'} or ~{undefined}, ~[value] {{-value,valueType@hades}}"
+	},
+	"SyntaxError": {
 		"unexpectedChar@proto": "syntax error, expected char '{{charExpected}}' instead of '{{char}}', index: {{index}}",
 		"unexpectedChar@hades": "syntax error, expected ~[char] {{charExpected,value@hades}} instead of {{char,value@hades}}, index {{index,value@hades}}",
 		"unexpectedWord@proto": "syntax error, unexpected word '{{char}}', index: {{index}}",
