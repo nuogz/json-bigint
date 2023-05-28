@@ -1,8 +1,4 @@
-import { TT } from '@nuogz/i18n';
-
-
-
-const T = TT('@nuogz/json-bigint');
+import { T } from './i18n.lib.js';
 
 
 

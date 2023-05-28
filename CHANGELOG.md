@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v1.3.0 - 2023.05.28 23
+* update code to properly support browser build
+* bump up dependencies
+	* update `typescript` to `v5.x`, and renew jsdoc
+* use eslint flat config, and related config udpate
+	* use `eslint.config.js` instead `eslintrc.cjs`
+
+
 ## v1.2.2 - 2023.04.07 11
 * improve locales
 
