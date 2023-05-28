@@ -81,7 +81,10 @@ if(typesSource.includes('node') && typesSource.includes('browser')) {
 }
 else if(typesSource.includes('node')) {
 	configs.push({
-		files: ['!eslint.config.js'],
+		files: ['**/*.js'],
+		ignores: [
+			'eslint.config.js'
+		],
 		languageOptions: {
 			globals: globals.node,
 		},
@@ -90,7 +93,10 @@ else if(typesSource.includes('node')) {
 }
 else if(typesSource.includes('browser')) {
 	configs.push({
-		files: ['!eslint.config.js'],
+		files: ['**/*.js'],
+		ignores: [
+			'eslint.config.js'
+		],
 		languageOptions: {
 			globals: globals.browser,
 		},
