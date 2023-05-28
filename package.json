@@ -19,7 +19,7 @@
 	"sideEffects": false,
 	"main": "./index.js",
 	"browser": {
-		"./src/lib/i18n.lib.js": "./src/lib/i18n.js"
+		"./src/i18n.lib.js": "./src/i18n.js"
 	},
 	"files": [
 		"index.js",
