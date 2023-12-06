@@ -1,4 +1,4 @@
 /node_modules
 
 /test/local
-/test/*.local.js
+/test/*.local.*

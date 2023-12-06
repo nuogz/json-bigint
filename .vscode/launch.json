@@ -9,12 +9,10 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"runtimeExecutable": "node.exe",
 			"cwd": "${fileDirname}",
+			"runtimeExecutable": "node",
 			"program": "${fileBasename}",
-			"args": [
-				"${workspaceRoot}"
-			],
+			"args": []
 		},
 		{
 			"type": "node",
@@ -26,10 +24,10 @@
 			],
 			"cwd": "${fileDirname}",
 			"runtimeExecutable": "npx",
+			"program": "mocha",
 			"args": [
-				"mocha",
 				"${file}",
-			],
+			]
 		},
 		{
 			"type": "node",
@@ -41,10 +39,10 @@
 			],
 			"cwd": "${workspaceFolder}/test",
 			"runtimeExecutable": "npx",
+			"program": "mocha",
 			"args": [
-				"mocha",
 				"*.test.js",
-			],
-		},
+			]
+		}
 	]
 }

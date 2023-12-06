@@ -1,5 +1,4 @@
 {
 	"eslint.experimental.useFlatConfig": true,
-	"files.trimTrailingWhitespace": true,
-	"javascript.preferences.importModuleSpecifierEnding": "js"
+	"files.trimTrailingWhitespace": true
 }

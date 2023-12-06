@@ -16,9 +16,9 @@
  * @param {('error'|'ignore'|'preserve')} [option.constructorAction]
  */
 export default function parse(text: string, reviver: Reviver, option: {
-    preferParseAsBigInt?: boolean;
-    preferBigIntString?: boolean;
-    protoAction?: ('error' | 'ignore' | 'preserve');
-    constructorAction?: ('error' | 'ignore' | 'preserve');
+    preferParseAsBigInt?: boolean | undefined;
+    preferBigIntString?: boolean | undefined;
+    protoAction?: "error" | "preserve" | "ignore" | undefined;
+    constructorAction?: "error" | "preserve" | "ignore" | undefined;
 }): any;
 export type Reviver = (this: any, key: string, value: any) => any;

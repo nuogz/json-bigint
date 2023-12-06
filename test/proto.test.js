@@ -28,7 +28,7 @@ describe('__proto__ and constructor assignment', () => {
 
 	it('Should throw an exception if protoAction set to invalid value', done => {
 		expect(() => parse('{ "__proto__": 1000000000000000 }', undefined, { protoAction: 'invalid value' }))
-			.to.throw('Incorrect value for protoAction option, must be "error", "ignore" or undefined but passed invalid value');
+			.to.throw('JSONBigint.parse --> \'option.protoAction\' argument must be one of \'error\', \'ignore\', \'preserve\' or undefined, value: invalid value <string>');
 
 
 		done();
@@ -36,7 +36,7 @@ describe('__proto__ and constructor assignment', () => {
 
 	it('Should throw an exception if constructorAction set to invalid value', done => {
 		expect(() => parse('{ "__proto__": 1000000000000000 }', undefined, { constructorAction: 'invalid value' }))
-			.to.throw('Incorrect value for constructorAction option, must be "error", "ignore" or undefined but passed invalid value');
+			.to.throw('JSONBigint.parse --> \'option.constructorAction\' argument must be one of \'error\', \'ignore\', \'preserve\' or undefined, value: invalid value <string>');
 
 
 		done();
@@ -44,7 +44,7 @@ describe('__proto__ and constructor assignment', () => {
 
 	it('Should throw an exception if protoAction set to error and there is __proto__ property', done => {
 		expect(() => parse('{ "\\u005f_proto__": 1000000000000000 }', undefined, { protoAction: 'error' }))
-			.to.throw('Object contains forbidden prototype property');
+			.to.throw('JSONBigint.parse --> object contains forbidden prototype property \'__proto__\', index: 20');
 
 
 		done();
@@ -52,7 +52,7 @@ describe('__proto__ and constructor assignment', () => {
 
 	it('Should throw an exception if constructorAction set to error and there is constructor property', done => {
 		expect(() => parse('{ "constructor": 1000000000000000 }', undefined, { constructorAction: 'error' }))
-			.to.throw('Object contains forbidden constructor property');
+			.to.throw('JSONBigint.parse --> object contains forbidden constructor property \'constructor\', index: 17');
 
 
 		done();

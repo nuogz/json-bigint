@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.3.1 - 2023.12.05 16
+* fix `test/proto.test.js`
+* tweak enviroment
+* bump up dependencies
+
+
 ## v1.3.0 - 2023.05.28 23
 * update code to properly support browser build
 * bump up dependencies

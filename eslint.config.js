@@ -13,7 +13,6 @@ const PKG = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.ur
 const typesSource = PKG.typesSource instanceof Array ? PKG.typesSource : [];
 
 
-
 const rulesBase = {
 	...js.configs.recommended.rules,
 
@@ -26,7 +25,6 @@ const rulesBase = {
 	noConsole: [1],
 	requireAtomicUpdates: [1, { allowProperties: true }],
 };
-
 
 
 
@@ -140,6 +138,16 @@ if(typesSource.includes('vue')) {
 	});
 }
 
+
+if(typesSource.includes('vite')) {
+	configs.push({
+		files: ['**/vite.config.js'],
+		languageOptions: {
+			globals: globals.node,
+		},
+		rules: rulesBase,
+	});
+}
 
 
 const convertKey = (raw, target) => {

@@ -9,5 +9,5 @@
  * @param {Replacer} [replacer]
  * @param {string|number} [space]
  */
-export default function stringify(value: any, replacer?: Replacer, space?: string | number): any;
+export default function stringify(value: any, replacer?: Replacer | undefined, space?: string | number | undefined): any;
 export type Replacer = (this: any, key: string, value: any) => any;
